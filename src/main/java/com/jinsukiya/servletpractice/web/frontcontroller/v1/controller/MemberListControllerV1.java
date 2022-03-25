@@ -2,7 +2,7 @@ package com.jinsukiya.servletpractice.web.frontcontroller.v1.controller;
 
 import com.jinsukiya.servletpractice.domain.member.Member;
 import com.jinsukiya.servletpractice.domain.member.MemberRepository;
-import com.jinsukiya.servletpractice.web.frontcontroller.v1.ControlleV1;
+import com.jinsukiya.servletpractice.web.frontcontroller.v1.ControllerV1;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class MemberListControllerV1 implements ControlleV1 {
+public class MemberListControllerV1 implements ControllerV1 {
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override

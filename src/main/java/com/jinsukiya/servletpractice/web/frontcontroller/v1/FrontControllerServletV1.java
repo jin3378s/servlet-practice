@@ -15,7 +15,7 @@ import java.util.Map;
 
 @WebServlet(name="frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
-    private Map<String, ControlleV1> controlleV1Map = new HashMap<>();
+    private Map<String, ControllerV1> controlleV1Map = new HashMap<>();
 
     public FrontControllerServletV1() {
         controlleV1Map.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
@@ -29,7 +29,7 @@ public class FrontControllerServletV1 extends HttpServlet {
 
         String requestURI = request.getRequestURI();
 
-        ControlleV1 controller = controlleV1Map.get(requestURI);
+        ControllerV1 controller = controlleV1Map.get(requestURI);
 
         if(controller == null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
