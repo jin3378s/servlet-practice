@@ -3,6 +3,8 @@ package com.jinsukiya.servletpractice.web.springmvc.v2;
 import com.jinsukiya.servletpractice.domain.member.Member;
 import com.jinsukiya.servletpractice.domain.member.MemberRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,12 +18,12 @@ import java.util.List;
 @RequestMapping("/springmvc/v2/members")
 public class SpringMemberControllerV2 {
     private MemberRepository memberRepository = MemberRepository.getInstance();
-    @RequestMapping("/new-form")
+    @GetMapping("/new-form")
     public ModelAndView createForm() {
         return new ModelAndView("new-form");
     }
 
-    @RequestMapping
+    @GetMapping
     public ModelAndView getMembers() throws ServletException, IOException {
 
         List<Member> members = this.memberRepository.findAll();
@@ -31,7 +33,7 @@ public class SpringMemberControllerV2 {
         return mv;
 
     }
-    @RequestMapping("/save")
+    @PostMapping("/save")
     public ModelAndView createMember(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
